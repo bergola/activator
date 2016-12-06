@@ -23,7 +23,7 @@
       ];
       var recentApps = [
         @Html(model.recentApps.sortBy(_.usedTime).map { app =>
-          "{ id: '"+app.id+"', url: '"+routes.Application.app(app.id)+"', name: '"+app.cachedName.getOrElse(app.id)+"', location: '"+app.location+"' }"
+          "{ id: '"+app.id+"', url: '"+routes.Application.app(app.id)+"', name: '"+app.cachedName.getOrElse(app.id)+"', location: '"+JsString(app.location.getAbsolutePath()).toString()+"' }"
         }.mkString(","))
       ]
       var templates = @Html(json.toString);
